@@ -1,7 +1,7 @@
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    branch = "main",
     -- enabled = false,
     event = "VeryLazy",
     dependencies = {
@@ -60,12 +60,6 @@ return {
         show_diff = {
           normal = "gd",
         },
-        show_system_prompt = {
-          normal = "gp",
-        },
-        show_user_selection = {
-          normal = "gs",
-        },
       },
     },
 
@@ -87,13 +81,7 @@ return {
 
       local prompts = {
         QuickChat = { selection = select.unnamed },
-        RegisterChat = { selection = select.unnamed },
-        BufferChat = { selection = select.buffer },
         Explain = { selection = select.unnamed, prompt = "Explain how the code works." },
-        FixError = {
-          selection = select.unnamed,
-          prompt = "please explain the errors in the text above and provide a solution.",
-        },
         Suggestion = {
           selection = select.unnamed,
           prompt = "Please review the code above and provide suggestions for improvement.",
@@ -126,8 +114,6 @@ return {
 
       local options = {
         "QuickChat",
-        "RegisterChat",
-        "BufferChat",
         "Explain",
         "FixError",
         "Suggestion",
