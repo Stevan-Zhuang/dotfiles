@@ -105,3 +105,6 @@ unset __conda_setup
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+export CLASSPATH=".:/Applications/antlr-4.13.2-complete.jar:$CLASSPATH"
+alias antlr4='java -Xmx500M -cp "/Applications/antlr-4.13.2-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+alias grun='java -Xmx500M -cp "/Applications/antlr-4.13.2-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
