@@ -191,4 +191,22 @@ return {
   {
     "frabjous/knap",
   },
+  {
+    "AckslD/swenv.nvim",
+    init = function()
+      local swenv = require('swenv.api')
+      swenv.set_venv('base')
+      swenv.auto_venv()
+    end,
+    keys = {
+      {
+        "<leader>vv",
+        function()
+          require('swenv.api').pick_venv()
+        end,
+        desc = "Pick virtual environment",
+        mode = { "n", "v", "x" },
+      },
+    }
+  }
 }
