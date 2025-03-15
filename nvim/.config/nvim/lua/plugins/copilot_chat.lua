@@ -18,16 +18,16 @@ return {
           local chat = require("CopilotChat")
           chat.toggle({selection = false})
         end,
-        desc = " ",
+        desc = "Copilot QuickChat",
         mode = { "n", "v", "x" },
       },
       {
-        "<leader>s",
+        "<leader>A",
         function()
           local chat = require("CopilotChat")
           chat.toggle()
         end,
-        desc = " ",
+        desc = "Copilot Chat",
         mode = { "n", "v", "x" },
       },
     },
