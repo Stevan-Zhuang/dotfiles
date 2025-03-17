@@ -4,6 +4,6 @@
 
 -- Set up custom filetypes
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*.md",
+  pattern = {"*.md", "*.tex"},
   command = "set spell spelllang=en_ca"
 })

@@ -182,14 +182,39 @@ return {
     "lervag/vimtex",
     lazy = false, -- we don't want to lazy load VimTeX
     init = function()
-      vim.g.vimtex_view_method = "zathura"
-      vim.g.vimtex_view_zathura_use_synctex = 0
-      vim.conceallevel = 2
+      vim.g.tex_flavor = 'latex'
+      vim.g.vimtex_view_method = "sioyek"
+      vim.g.vimtex_quickfix_mode = 0
+      vim.opt.conceallevel = 2
       vim.g.tex_conceal = "abdmg"
+      vim.g.vimtex_syntax_enabled = 1
     end,
   },
   {
     "frabjous/knap",
+    init = function()
+      -- set shorter name for keymap function
+      local kmap = vim.keymap.set
+
+      -- F5 processes the document once, and refreshes the view
+      kmap({ 'n', 'v' },'<leader>ka', function() require("knap").process_once() end)
+
+      -- F6 closes the viewer application, and allows settings to be reset
+      kmap({ 'n', 'v' },'<leader>ks', function() require("knap").close_viewer() end)
+
+      -- F7 toggles the autcessing on and off
+      kmap({ 'n', 'v' },'<leader>kd', function() require("knap").toggle_autopreviewing() end)
+
+      -- F8 invokes a SyncTrward search, or similar, where appropriate
+      kmap({ 'n', 'v' },'<leader>kf', function() require("knap").forward_jump() end)
+    end,
+  },
+  {
+    "preservim/vim-markdown",
+    dependencies = { "godlygeek/tabular" },
+    init = function()
+      vim.g.vim_markdown_math = 1
+    end,
   },
   {
     "AckslD/swenv.nvim",
