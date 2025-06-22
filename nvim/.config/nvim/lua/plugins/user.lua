@@ -119,6 +119,7 @@ return {
     event = "User AstroFile",
     opts = {
       suggestion = {
+        enabled = true,
         auto_trigger = true,
         debounce = 150,
         keymap = {
@@ -128,7 +129,10 @@ return {
           prev = "<M-p>",
         },
       },
-    },
+      filetypes = {
+        markdown = true
+      }
+    }
   },
   {
     "alexghergh/nvim-tmux-navigation",
@@ -193,6 +197,10 @@ return {
   {
     "frabjous/knap",
     init = function()
+      local gknapsettings = {
+        mdoutputext = "pdf"
+      }
+      vim.g.knap_settings = gknapsettings
       -- set shorter name for keymap function
       local kmap = vim.keymap.set
 
@@ -207,13 +215,6 @@ return {
 
       -- F8 invokes a SyncTrward search, or similar, where appropriate
       kmap({ 'n', 'v' },'<leader>kf', function() require("knap").forward_jump() end)
-    end,
-  },
-  {
-    "preservim/vim-markdown",
-    dependencies = { "godlygeek/tabular" },
-    init = function()
-      vim.g.vim_markdown_math = 1
     end,
   },
   {

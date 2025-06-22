@@ -14,7 +14,7 @@ return {
         -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
         -- the name of the parser)
         -- list of language that will be disabled
-        disable = { "latex", "markdown" },
+        disable = { "latex" },
     },
   },
 }
